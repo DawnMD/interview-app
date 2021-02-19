@@ -5,31 +5,35 @@ import AddItemInput from "../AddItemInput/AddItemInput";
 class ListCard extends Component {
   constructor(props) {
     super(props);
-    // this.state = { todosList: [] };
+    this.state = { todos: [] };
   }
-  //   listState = async (lists) => {
-  //     const itemList = await lists;
-  //     this.setState({ todosList: itemList });
-  //     // console.log(this.state.todosList);
-  //   };
+  listState = async (lists) => {
+    this.setState({ todos: [...this.state.todos, await lists] });
+    // console.log(this.state.todos);
+  };
   render() {
     return (
       <div className="ui card">
         <div className="content">
-          <div className="header">{this.props.listLabel}</div>
+          <div className="header">
+            <strong>{this.props.listLabel.toUpperCase()}</strong>
+          </div>
           <AddItemInput
             ListLabel={this.props.listLabel}
             listState={this.listState}
           />
         </div>
-        {/* <div className="content">
+        <div className="content">
           <div className="ui feed">
             <div className="event">
               <div className="content">
+                {this.state.todos.map((todo) => (
+                  <ListItem key={todo} todoLabel={todo} />
+                ))}
               </div>
             </div>
           </div>
-        </div> */}
+        </div>
       </div>
     );
   }

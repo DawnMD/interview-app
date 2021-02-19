@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./AddListInput.css";
 import ListCard from "../ListCard/ListCard";
 import ListItem from "../ListItem/ListItem";
 
@@ -20,7 +21,7 @@ class AddListInput extends Component {
   render() {
     return (
       <div>
-        <form className="ui form" style={{ marginTop: "10px" }}>
+        <form className="ui form margin-t">
           <div className="field">
             <label>{this.props.label}</label>
             <input value={this.state.listName} onChange={this.OnInputChange} />
