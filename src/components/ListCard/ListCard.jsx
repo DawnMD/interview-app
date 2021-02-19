@@ -9,7 +9,6 @@ class ListCard extends Component {
   }
   listState = async (lists) => {
     this.setState({ todos: [...this.state.todos, await lists] });
-    // console.log(this.state.todos);
   };
   render() {
     return (

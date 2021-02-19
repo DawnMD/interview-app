@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import "./AddListInput.css";
-import ListCard from "../ListCard/ListCard";
-import ListItem from "../ListItem/ListItem";
 
 class AddListInput extends Component {
   constructor(props) {
@@ -10,6 +8,7 @@ class AddListInput extends Component {
   }
   OnButtonClick = (e) => {
     e.preventDefault();
+    this.props.trackCards(this.state.listName);
     this.setState({
       lists: [this.state.listName, ...this.state.lists],
       listName: "",
@@ -24,7 +23,11 @@ class AddListInput extends Component {
         <form className="ui form margin-t">
           <div className="field">
             <label>{this.props.label}</label>
-            <input value={this.state.listName} onChange={this.OnInputChange} />
+            <input
+              value={this.state.listName}
+              onChange={this.OnInputChange}
+              placeholder={this.props.placeholder}
+            />
             <div style={{ marginTop: "10px" }}>
               <button
                 className="ui positive button"
@@ -35,9 +38,6 @@ class AddListInput extends Component {
             </div>
           </div>
         </form>
-        {this.state.lists.map((list) => (
-          <ListCard key={list} listLabel={list} />
-        ))}
       </div>
     );
   }
