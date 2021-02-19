@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import Buttons from "../Buttons/Buttons";
 import ListCard from "../ListCard/ListCard";
 import ListItem from "../ListItem/ListItem";
 
