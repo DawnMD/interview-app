@@ -10,6 +10,10 @@ class ListCard extends Component {
   listState = async (lists) => {
     this.setState({ todos: [...this.state.todos, await lists] });
   };
+  onButtonClick = (id) => {
+    const newList = this.state.todos.filter((todo) => todo !== id);
+    this.setState({ todos: newList });
+  };
   render() {
     return (
       <div className="ui card">
@@ -27,7 +31,16 @@ class ListCard extends Component {
             <div className="event">
               <div className="content">
                 {this.state.todos.map((todo) => (
-                  <ListItem key={todo} todoLabel={todo} />
+                  <ListItem key={todo} todoLabel={todo}>
+                    <button
+                      className="ui mini red button"
+                      onClick={() => {
+                        this.onButtonClick(todo);
+                      }}
+                    >
+                      Delete
+                    </button>
+                  </ListItem>
                 ))}
               </div>
             </div>

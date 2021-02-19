@@ -33,7 +33,7 @@ class AddListInput extends Component {
                 className="ui positive button"
                 onClick={this.OnButtonClick}
               >
-                Add List
+                {this.props.buttonVal}
               </button>
             </div>
           </div>

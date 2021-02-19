@@ -12,9 +12,12 @@ class App extends Component {
   };
   renderedListCards = () => {
     return this.state.list.map((card) => (
-      <ListCard key={card} listLabel={card} />
+      <React.Fragment key={card}>
+        <ListCard listLabel={card} />
+      </React.Fragment>
     ));
   };
+
   render() {
     return (
       <div className="ui container">
@@ -22,6 +25,7 @@ class App extends Component {
           label="Name of todo list"
           placeholder="Homework"
           trackCards={this.trackCards}
+          buttonVal="Add List"
         />
         {this.renderedListCards()}
       </div>
