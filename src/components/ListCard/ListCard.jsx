@@ -14,6 +14,10 @@ class ListCard extends Component {
     const newList = this.state.todos.filter((todo) => todo !== id);
     this.setState({ todos: newList });
   };
+  // onButtonClickStrike = (id) => {
+  //   console.log(id);
+  //   const strike = id ? line
+  // };
   render() {
     return (
       <div className="ui card">
